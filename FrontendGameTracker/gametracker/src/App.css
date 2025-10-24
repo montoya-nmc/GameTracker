@@ -1,0 +1,56 @@
+.app {
+  background-color: #1b2838;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.top-nav {
+  background-color: #171a21;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-sections {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  color: #969696;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+  color: #ffffff;
+  background-color: #316282;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-controls input {
+  padding: 5px 10px;
+  background-color: #316282;
+  border: none;
+  color: white;
+  border-radius: 3px;
+}
+
+.main-content {
+  padding: 20px;
+}

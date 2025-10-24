@@ -1,0 +1,72 @@
+.game-card {
+  background-color: #1b2838;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: scale(1.03);
+}
+
+.game-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.game-card-content {
+  padding: 1rem;
+}
+
+.game-card-genre {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.game-card-actions {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.btn-favorite, .btn-details {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-details {
+  background-color: var(--accent-color);
+  color: white;
+  flex: 1;
+}
+
+.btn-favorite {
+  background-color: transparent;
+  color: #ff4757;
+}
+
+.game-cover {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 10px;
+}
+
+.game-info h3 {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+}
+
+.game-genre {
+  color: #969696;
+  font-size: 12px;
+}
