@@ -4,6 +4,7 @@
   overflow: hidden;
   transition: transform 0.2s;
   cursor: pointer;
+  position: relative;
 }
 
 .game-card:hover {
@@ -52,7 +53,7 @@
 
 .game-cover {
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -64,9 +65,53 @@
   color: #fff;
   font-size: 14px;
   margin: 0;
+  margin-bottom: 5px;
 }
 
 .game-genre {
   color: #969696;
   font-size: 12px;
+  display: block;
+}
+
+.game-price {
+  color: #66c0f4;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+.game-actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.btn-update, .btn-delete {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.btn-update {
+  background: #66c0f4;
+  color: white;
+}
+
+.btn-update:hover {
+  background: #4b8fb6;
+}
+
+.btn-delete {
+  background: #c83737;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #a52c2c;
 }

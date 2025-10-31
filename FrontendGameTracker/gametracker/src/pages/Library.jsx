@@ -1,31 +1,52 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GameCard from '../components/cards/GameCard';
-import { gameService } from '../services/gameService';
+import { API_URL } from '../config/api';
 import './Library.css';
 
-const Library = () => {
+const Library = ({ refreshTrigger }) => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [gameToEdit, setGameToEdit] = useState(null);
 
   useEffect(() => {
-    loadGames();
-  }, []);
+    fetchGames();
+  }, [refreshTrigger]); // Re-fetch when refreshTrigger changes
 
-  const loadGames = async () => {
+  const fetchGames = async () => {
     try {
-      setLoading(true);
-      const data = await gameService.getAllGames();
-      setGames(data);
-    } catch (err) {
-      setError('Error al cargar los juegos');
+      const response = await fetch(API_URL);
+      const data = await response.json();
+      const formattedGames = data.map(game => ({
+        id: game.id,
+        title: game.name,
+        genre: game.category,
+        image: game.imageUrl || 'https://via.placeholder.com/300x200',
+        price: game.price
+      }));
+      setGames(formattedGames);
+    } catch (error) {
+      console.error('Error fetching games:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading) return <div className="loading">Cargando biblioteca...</div>;
-  if (error) return <div className="error">{error}</div>;
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`${API_URL}/${id}`, {
+        method: 'DELETE'
+      });
+      setGames(games.filter(game => game.id !== id));
+    } catch (error) {
+      console.error('Error deleting game:', error);
+    }
+  };
+
+  const handleUpdate = (game) => {
+    setGameToEdit(game);
+  };
+
+  if (loading) return <div className="loading">Cargando juegos...</div>;
 
   return (
     <div className="library-container">
@@ -34,19 +55,15 @@ const Library = () => {
           <h3>FILTROS</h3>
         </div>
       </div>
-      <div className="games-content">
-        {games.length === 0 ? (
-          <div className="empty-library">
-            <h2>Tu biblioteca está vacía</h2>
-            <p>Agrega juegos para comenzar tu colección</p>
-          </div>
-        ) : (
-          <div className="games-grid">
-            {games.map(game => (
-              <GameCard key={game.id} game={game} />
-            ))}
-          </div>
-        )}
+      <div className="games-grid">
+        {games.map(game => (
+          <GameCard 
+            key={game.id} 
+            game={game}
+            onDelete={handleDelete}
+            onUpdate={handleUpdate}
+          />
+        ))}
       </div>
     </div>
   );

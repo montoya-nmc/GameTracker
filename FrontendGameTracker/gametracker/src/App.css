@@ -54,3 +54,45 @@
 .main-content {
   padding: 20px;
 }
+
+.add-game-btn {
+  background: #66c0f4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.add-game-btn:hover {
+  background: #4b8fb6;
+}
+
+.nav-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 10px;
+  transition: background-color 0.2s;
+}
+
+.add-game {
+  background: #66c0f4;
+  color: white;
+}
+
+.add-game:hover {
+  background: #4b8fb6;
+}
+
+.refresh {
+  background: #31496d;
+  color: #fff;
+}
+
+.refresh:hover {
+  background: #426291;
+}

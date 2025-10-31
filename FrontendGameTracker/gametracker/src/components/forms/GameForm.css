@@ -1,0 +1,62 @@
+.game-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.game-form {
+  background: #1b2838;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.game-form h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.game-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background: #316282;
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+
+.game-form input::placeholder {
+  color: #8f98a0;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-buttons button[type="submit"] {
+  background: #66c0f4;
+  color: white;
+}
+
+.form-buttons button[type="button"] {
+  background: #32435c;
+  color: #8f98a0;
+}
